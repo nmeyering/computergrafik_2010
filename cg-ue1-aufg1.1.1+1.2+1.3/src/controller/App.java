@@ -1,5 +1,6 @@
 /**
  * @author Denis Meyer
+ * @author Niels Meyering
  * @date 06.04.2010
  * Aufgabe 1.1. View beobachtet Model und wird benachrichtigt, wenn sich dort etwas geändert hat.
  */
