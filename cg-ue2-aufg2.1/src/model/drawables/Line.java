@@ -42,7 +42,7 @@ public class Line extends DrawableObject {
 	}
 
 	/**
-	 * Paint-Methode der Pointklasse. Zeichnet einen Pixel
+	 * Paint-Methode der Lineklasse. Zeichnet eine Linie
 	 * 
 	 * @param g
 	 *            der Graphikkontext, in den das Objekt gezeichnet werden soll

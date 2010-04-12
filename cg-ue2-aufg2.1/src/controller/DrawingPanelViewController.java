@@ -12,6 +12,7 @@ import javax.swing.event.MouseInputListener;
 
 import controller.listener.LineListener;
 import controller.listener.PointListener;
+import controller.listener.RectangleListener;
 
 import model.drawables.DrawableObject;
 
@@ -38,6 +39,7 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 	// Listener für die einzelnen grafischen Objekte
 	private PointListener pointListener;
 	private LineListener lineListener;
+	private RectangleListener rectangleListener;
 
 	/**
 	 * Der Konstruktor initialisiert die View und legt die Listener an.
@@ -59,6 +61,7 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 		// Listener für die einzelnen Grafischen Objekte anlegen.
 		pointListener = new PointListener(this);
 		lineListener = new LineListener(this);
+		rectangleListener = new RectangleListener(this);
 
 		// Event-Listener fuer Button
 		ActionListener a = new ActionListener() {
@@ -83,10 +86,12 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 
 				JComboBox cb = (JComboBox) e.getSource();
 
-				if (cb.getSelectedItem().equals("Punkt"))
+				if (cb.getSelectedItem().equals("Punkt")) {
 					changeMouseInputListenerTo(pointListener);
-				else if (cb.getSelectedItem().equals("Linie")) {
+				} else if (cb.getSelectedItem().equals("Linie")) {
 					changeMouseInputListenerTo(lineListener);
+				} else if (cb.getSelectedItem().equals("Rechteck")) {
+					changeMouseInputListenerTo(rectangleListener);
 				}
 
 			}
