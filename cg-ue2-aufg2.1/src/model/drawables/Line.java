@@ -44,9 +44,9 @@ public class Line extends DrawableObject {
 	 *            der Graphikkontext, in den das Objekt gezeichnet werden soll
 	 */
 	public void paint(Graphics g) {
+		int error, delta, schritt, dx, dy, inc_x, inc_y;
 		Point p = new Point(p1);
 
-		int error, delta, schwelle, dx, dy, inc_x, inc_y;
 		dx = p2.getXCoordinate() - p.getXCoordinate();
 		dy = p2.getYCoordinate() - p.getYCoordinate();
 
@@ -63,28 +63,28 @@ public class Line extends DrawableObject {
 		if (Math.abs(dy) < Math.abs(dx)) {
 			error = -Math.abs(dx);
 			delta = 2 * Math.abs(dy);
-			schwelle = 2 * error;
+			schritt = 2 * error;
 			while (p.getXCoordinate() != p2.getXCoordinate()) {
 				setPixel(p.getXCoordinate(), p.getYCoordinate(), g);
 				p.setXCoordinate(p.getXCoordinate() + inc_x);
 				error = error + delta;
 				if (error > 0) {
 					p.setYCoordinate(p.getYCoordinate() + inc_y);
-					error = error + schwelle;
+					error = error + schritt;
 				}
 			}
 			// Steil nach oben oder unten
 		} else {
 			error = -Math.abs(dy);
 			delta = 2 * Math.abs(dx);
-			schwelle = 2 * error;
+			schritt = 2 * error;
 			while (p.getYCoordinate() != p2.getYCoordinate()) {
 				setPixel(p.getXCoordinate(), p.getYCoordinate(), g);
 				p.setYCoordinate(p.getYCoordinate() + inc_y);
 				error = error + delta;
 				if (error > 0) {
 					p.setXCoordinate(p.getXCoordinate() + inc_x);
-					error = error + schwelle;
+					error = error + schritt;
 				}
 			}
 		}
