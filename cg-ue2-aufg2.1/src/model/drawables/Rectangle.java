@@ -10,19 +10,15 @@ import java.awt.Graphics;
  */
 public class Rectangle extends DrawableObject {
 
-	public Point p1, p2;
+	private Point p1, p2; // Anfangs- und Endpunkt
 
 	/**
 	 * Konstruktor, der ein Punktobjekt aus einem Koordinatenpaar errechnet
 	 * 
-	 * @param x1
-	 *            1. x-Koordinate
-	 * @param x2
-	 *            2. y-Koordinate
-	 * @param y1
-	 *            1. x-Koordinate
-	 * @param y2
-	 *            2. y-Koordinate
+	 * @param p1
+	 *            Punkt 1
+	 * @param p2
+	 *            Punkt 2
 	 */
 	public Rectangle(Point p1, Point p2) {
 		this.p1 = p1;
@@ -37,8 +33,8 @@ public class Rectangle extends DrawableObject {
 	 */
 
 	public Rectangle(Line copy) {
-		this.p1 = copy.p1;
-		this.p2 = copy.p2;
+		this.p1 = copy.getStartPoint();
+		this.p2 = copy.getEndPoint();
 	}
 
 	/**
@@ -48,12 +44,29 @@ public class Rectangle extends DrawableObject {
 	 *            der Graphikkontext, in den das Objekt gezeichnet werden soll
 	 */
 	public void paint(Graphics g) {
-		Point n1 = new Point(p2.x, p1.y);
-		Point n2 = new Point(p1.x, p2.y);
+		Point n1 = new Point(p2.getXCoordinate(), p1.getYCoordinate());
+		Point n2 = new Point(p1.getXCoordinate(), p2.getYCoordinate());
 		new Line(p1, n1).paint(g);
 		new Line(n1, p2).paint(g);
 		new Line(p2, n2).paint(g);
 		new Line(n2, p1).paint(g);
 	}
 
+	/**
+	 * Gibt den Startpunkt zurück
+	 * 
+	 * @return Startpunkt
+	 */
+	public Point getStartPoint() {
+		return p1;
+	}
+
+	/**
+	 * Gibt den Endpunkt zurück
+	 * 
+	 * @return Endpunkt
+	 */
+	public Point getEndPoint() {
+		return p2;
+	}
 }

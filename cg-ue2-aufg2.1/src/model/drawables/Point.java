@@ -10,8 +10,8 @@ import java.awt.Graphics;
  */
 public class Point extends DrawableObject {
 
-	public int x;
-	public int y;
+	private int x; // x-Koordinate
+	private int y; // y-Koordinate
 
 	/**
 	 * Konstruktor, der ein Punktobjekt aus einem Koordinatenpaar errechnet
@@ -48,4 +48,41 @@ public class Point extends DrawableObject {
 		setPixel(x, y, g);
 	}
 
+	/**
+	 * Setzt die x-Coordinate
+	 * 
+	 * @param n
+	 *            x-Koordinate
+	 */
+	public void setXCoordinate(int n) {
+		this.x = n;
+	}
+
+	/**
+	 * Setzt die y-Coordinate
+	 * 
+	 * @param n
+	 *            y-Koordinate
+	 */
+	public void setYCoordinate(int n) {
+		this.y = n;
+	}
+
+	/**
+	 * Gibt die x-Coordinate zurück
+	 * 
+	 * @return x-Koordinate
+	 */
+	public int getXCoordinate() {
+		return x;
+	}
+
+	/**
+	 * Gibt die y-Coordinate zurück
+	 * 
+	 * @return y-Koordinate
+	 */
+	public int getYCoordinate() {
+		return y;
+	}
 }

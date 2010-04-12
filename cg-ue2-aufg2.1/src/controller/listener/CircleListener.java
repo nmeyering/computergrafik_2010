@@ -6,32 +6,34 @@ import model.drawables.Point;
 import controller.DrawableObjectProcessing;
 
 /**
- * Ein Listener, der Points durch MouseEvents erzeugt und an ein Objekt, das
+ * Ein Listener, der Lines durch MouseEvents erzeugt und an ein Objekt, das
  * DrawableObjectProcessing implementiert übergibt.
  * 
- * @author Nicolas Neubauer
+ * @author Denis Meyer
  * 
  */
-public class PointListener extends MouseInputAdapter {
+public class CircleListener extends MouseInputAdapter {
 
+	@SuppressWarnings("unused")
 	private DrawableObjectProcessing delegate;
+	@SuppressWarnings("unused")
+	private Point start;
 
 	/**
 	 * @param delegate
 	 */
-	public PointListener(DrawableObjectProcessing delegate) {
+	public CircleListener(DrawableObjectProcessing delegate) {
 		this.delegate = delegate;
 	}
 
 	/**
-	 * Erzeuge einen neuen Point bei den Klick-Koordinaten und übergebe ihn an
+	 * Erzeuge eine neue Linie bei den Klick-Koordinaten und übergebe ihn an
 	 * das Delegate.
 	 * 
 	 * @param e
 	 */
 	public void mouseClicked(MouseEvent e) {
-		Point p = new Point(e.getX(), e.getY());
-		delegate.processDrawableObject(p);
+		// TODO
 	}
 
 }

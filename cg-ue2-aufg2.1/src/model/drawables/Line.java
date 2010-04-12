@@ -10,19 +10,15 @@ import java.awt.Graphics;
  */
 public class Line extends DrawableObject {
 
-	public Point p1, p2;
+	private Point p1, p2; // Anfangs- und Endpunkt
 
 	/**
 	 * Konstruktor, der ein Punktobjekt aus einem Koordinatenpaar errechnet
 	 * 
-	 * @param x1
-	 *            1. x-Koordinate
-	 * @param x2
-	 *            2. y-Koordinate
-	 * @param y1
-	 *            1. x-Koordinate
-	 * @param y2
-	 *            2. y-Koordinate
+	 * @param p1
+	 *            Punkt 1
+	 * @param p2
+	 *            Punkt 2
 	 */
 	public Line(Point p1, Point p2) {
 		this.p1 = p1;
@@ -33,7 +29,7 @@ public class Line extends DrawableObject {
 	 * Copy-Konstruktor
 	 * 
 	 * @param copy
-	 *            Orginal, das kopiert werden soll
+	 *            Original, das kopiert werden soll
 	 */
 
 	public Line(Line copy) {
@@ -51,8 +47,8 @@ public class Line extends DrawableObject {
 		Point p = new Point(p1);
 
 		int error, delta, schwelle, dx, dy, inc_x, inc_y;
-		dx = p2.x - p.x;
-		dy = p2.y - p.y;
+		dx = p2.getXCoordinate() - p.getXCoordinate();
+		dy = p2.getYCoordinate() - p.getYCoordinate();
 
 		if (dx > 0)
 			inc_x = 1;
@@ -63,35 +59,54 @@ public class Line extends DrawableObject {
 		else
 			inc_y = -1;
 
-		if (Math.abs(dy) < Math.abs(dx)) { // flach nach oben oder unten
+		// Flach nach oben oder unten
+		if (Math.abs(dy) < Math.abs(dx)) {
 			error = -Math.abs(dx);
 			delta = 2 * Math.abs(dy);
 			schwelle = 2 * error;
-			while (p.x != p2.x) {
-				setPixel(p.x, p.y, g);
-				p.x += inc_x;
+			while (p.getXCoordinate() != p2.getXCoordinate()) {
+				setPixel(p.getXCoordinate(), p.getYCoordinate(), g);
+				p.setXCoordinate(p.getXCoordinate() + inc_x);
 				error = error + delta;
 				if (error > 0) {
-					p.y += inc_y;
+					p.setYCoordinate(p.getYCoordinate() + inc_y);
 					error = error + schwelle;
 				}
 			}
-		} else { // steil nach oben oder unten
+			// Steil nach oben oder unten
+		} else {
 			error = -Math.abs(dy);
 			delta = 2 * Math.abs(dx);
 			schwelle = 2 * error;
-			while (p.y != p2.y) {
-				setPixel(p.x, p.y, g);
-				p.y += inc_y;
+			while (p.getYCoordinate() != p2.getYCoordinate()) {
+				setPixel(p.getXCoordinate(), p.getYCoordinate(), g);
+				p.setYCoordinate(p.getYCoordinate() + inc_y);
 				error = error + delta;
 				if (error > 0) {
-					p.x += inc_x;
+					p.setXCoordinate(p.getXCoordinate() + inc_x);
 					error = error + schwelle;
 				}
 			}
 		}
 
-		setPixel(p2.x, p2.y, g);
+		setPixel(p2.getXCoordinate(), p2.getYCoordinate(), g);
 	}
 
+	/**
+	 * Gibt den Startpunkt zurück
+	 * 
+	 * @return Startpunkt
+	 */
+	public Point getStartPoint() {
+		return p1;
+	}
+
+	/**
+	 * Gibt den Endpunkt zurück
+	 * 
+	 * @return Endpunkt
+	 */
+	public Point getEndPoint() {
+		return p2;
+	}
 }

@@ -10,6 +10,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.event.MouseInputListener;
 
+import controller.listener.CircleListener;
 import controller.listener.LineListener;
 import controller.listener.PointListener;
 import controller.listener.RectangleListener;
@@ -40,6 +41,7 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 	private PointListener pointListener;
 	private LineListener lineListener;
 	private RectangleListener rectangleListener;
+	private CircleListener circleListener;
 
 	/**
 	 * Der Konstruktor initialisiert die View und legt die Listener an.
@@ -62,6 +64,7 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 		pointListener = new PointListener(this);
 		lineListener = new LineListener(this);
 		rectangleListener = new RectangleListener(this);
+		circleListener = new CircleListener(this);
 
 		// Event-Listener fuer Button
 		ActionListener a = new ActionListener() {
@@ -92,6 +95,8 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 					changeMouseInputListenerTo(lineListener);
 				} else if (cb.getSelectedItem().equals("Rechteck")) {
 					changeMouseInputListenerTo(rectangleListener);
+				} else if (cb.getSelectedItem().equals("Kreis")) {
+					changeMouseInputListenerTo(circleListener);
 				}
 
 			}
@@ -151,6 +156,8 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 	/**
 	 * Fügt das DrawableObject in das Model ein und fordert die View zum
 	 * Neuzeichnen auf.
+	 * 
+	 * @param drawableObject
 	 */
 	public void processDrawableObject(DrawableObject drawableObject) {
 
@@ -175,6 +182,8 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 	 * Fügt ein temporäres Objekt in das Model ein und fordert die View zum
 	 * Neuzeichnen auf. Das Objekt kann mit clearTemporaryDrawableObject wieder
 	 * aus dem Model entfernt werden.
+	 * 
+	 * @param drawableObject
 	 */
 	public void setTemporaryDrawableObject(DrawableObject drawableObject) {
 

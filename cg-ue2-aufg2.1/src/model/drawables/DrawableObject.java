@@ -6,8 +6,6 @@ package model.drawables;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
-
 /**
  * Oberklasse für grafische (2D-)Objekte
  * 
@@ -16,6 +14,9 @@ import javax.swing.JPanel;
  */
 public abstract class DrawableObject {
 
+	/**
+	 * @param g
+	 */
 	public abstract void paint(Graphics g);
 
 	/**

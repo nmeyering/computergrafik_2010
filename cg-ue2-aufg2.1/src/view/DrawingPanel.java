@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.LinkedList;
-
 import javax.swing.JPanel;
-
 import model.drawables.DrawableObject;
 
 /**
@@ -52,6 +50,8 @@ public class DrawingPanel extends JPanel {
 
 	/**
 	 * Zeichne alle DrawableObjects aus dem Model auf die Zeichenfläche.
+	 * 
+	 * @param g
 	 */
 	public void paint(Graphics g) {
 		super.paint(g);

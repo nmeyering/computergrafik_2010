@@ -19,6 +19,9 @@ public class LineListener extends MouseInputAdapter {
 	private DrawableObjectProcessing delegate;
 	private Point start;
 
+	/**
+	 * @param delegate
+	 */
 	public LineListener(DrawableObjectProcessing delegate) {
 		this.delegate = delegate;
 	}
@@ -26,6 +29,8 @@ public class LineListener extends MouseInputAdapter {
 	/**
 	 * Erzeuge eine neue Line bei den Klick-Koordinaten und übergebe ihn an das
 	 * Delegate.
+	 * 
+	 * @param e
 	 */
 	public void mouseClicked(MouseEvent e) {
 		Point p = new Point(e.getX(), e.getY());
