@@ -6,6 +6,7 @@ import java.awt.Graphics;
  * Repräsentiert ein Rectangle
  * 
  * @author Denis Meyer
+ * @author Niels Meyering
  * 
  */
 public class Rectangle extends DrawableObject {

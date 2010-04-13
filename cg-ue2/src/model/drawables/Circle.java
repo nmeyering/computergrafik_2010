@@ -6,6 +6,7 @@ import java.awt.Graphics;
  * Repräsentiert einen Kreis
  * 
  * @author Denis Meyer
+ * @author Niels Meyering
  * 
  */
 public class Circle extends DrawableObject {

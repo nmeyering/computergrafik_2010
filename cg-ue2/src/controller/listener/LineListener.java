@@ -12,6 +12,7 @@ import controller.DrawableObjectProcessing;
  * DrawableObjectProcessing implementiert übergibt.
  * 
  * @author Denis Meyer
+ * @author Niels Meyering
  * 
  */
 public class LineListener extends MouseInputAdapter {

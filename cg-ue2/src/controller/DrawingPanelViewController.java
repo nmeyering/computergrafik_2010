@@ -26,6 +26,8 @@ import view.DrawingPanelView;
  * passieren. Ggf. muss die View aufgefordert werden sich neu zu zeichnen.
  * 
  * @author Nicolas Neubauer
+ * @author Denis Meyer
+ * @author Niels Meyering
  * 
  */
 public class DrawingPanelViewController implements DrawableObjectProcessing {

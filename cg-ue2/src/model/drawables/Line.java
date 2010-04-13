@@ -6,6 +6,7 @@ import java.awt.Graphics;
  * Repräsentiert eine Linie
  * 
  * @author Denis Meyer
+ * @author Niels Meyering
  * 
  */
 public class Line extends DrawableObject {
