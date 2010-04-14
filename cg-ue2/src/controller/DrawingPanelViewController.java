@@ -10,6 +10,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.event.MouseInputListener;
 
+import controller.listener.AntiAliasedLineListener;
 import controller.listener.CircleListener;
 import controller.listener.LineListener;
 import controller.listener.PointListener;
@@ -44,6 +45,7 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 	private LineListener lineListener;
 	private RectangleListener rectangleListener;
 	private CircleListener circleListener;
+	private AntiAliasedLineListener antiAliasedLineListener;
 
 	/**
 	 * Der Konstruktor initialisiert die View und legt die Listener an.
@@ -67,6 +69,7 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 		lineListener = new LineListener(this);
 		rectangleListener = new RectangleListener(this);
 		circleListener = new CircleListener(this);
+		antiAliasedLineListener = new AntiAliasedLineListener(this);
 
 		// Event-Listener fuer Button
 		ActionListener a = new ActionListener() {
@@ -99,6 +102,8 @@ public class DrawingPanelViewController implements DrawableObjectProcessing {
 					changeMouseInputListenerTo(rectangleListener);
 				} else if (cb.getSelectedItem().equals("Kreis")) {
 					changeMouseInputListenerTo(circleListener);
+				} else if (cb.getSelectedItem().equals("Anti-Aliased Linie")) {
+					changeMouseInputListenerTo(antiAliasedLineListener);
 				}
 
 			}

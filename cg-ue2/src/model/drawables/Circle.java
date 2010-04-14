@@ -71,14 +71,7 @@ public class Circle extends DrawableObject {
 		dxy = -2 * r + 5;
 
 		while (yh >= xh) { // Fuer jede x-Koordinate, fuer jeden Oktand
-			setPixel(p.getXCoordinate() + xh, p.getYCoordinate() + yh, g);
-			setPixel(p.getXCoordinate() + yh, p.getYCoordinate() + xh, g);
-			setPixel(p.getXCoordinate() + yh, p.getYCoordinate() - xh, g);
-			setPixel(p.getXCoordinate() + xh, p.getYCoordinate() - yh, g);
-			setPixel(p.getXCoordinate() - xh, p.getYCoordinate() - yh, g);
-			setPixel(p.getXCoordinate() - yh, p.getYCoordinate() - xh, g);
-			setPixel(p.getXCoordinate() - yh, p.getYCoordinate() + xh, g);
-			setPixel(p.getXCoordinate() - xh, p.getYCoordinate() + yh, g);
+			setOctandPixels(xh, yh, g);
 
 			if (d < 0) { // Falls noch im Kreis
 				d += dx;
@@ -93,6 +86,24 @@ public class Circle extends DrawableObject {
 				yh--; // passend aktualisieren
 			}
 		}
+	}
+
+	/**
+	 * Setzt die Pixel der Oktanden
+	 * 
+	 * @param xh
+	 * @param yh
+	 * @param g
+	 */
+	public void setOctandPixels(int xh, int yh, Graphics g) {
+		setPixel(p.getXCoordinate() + xh, p.getYCoordinate() + yh, g);
+		setPixel(p.getXCoordinate() + yh, p.getYCoordinate() + xh, g);
+		setPixel(p.getXCoordinate() + yh, p.getYCoordinate() - xh, g);
+		setPixel(p.getXCoordinate() + xh, p.getYCoordinate() - yh, g);
+		setPixel(p.getXCoordinate() - xh, p.getYCoordinate() - yh, g);
+		setPixel(p.getXCoordinate() - yh, p.getYCoordinate() - xh, g);
+		setPixel(p.getXCoordinate() - yh, p.getYCoordinate() + xh, g);
+		setPixel(p.getXCoordinate() - xh, p.getYCoordinate() + yh, g);
 	}
 
 	/**
