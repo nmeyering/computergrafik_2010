@@ -15,10 +15,12 @@ import java.util.Observer;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.UIManager.LookAndFeelInfo;
 import model.ZaehlerModel;
 
@@ -57,8 +59,19 @@ public class ZaehlerView extends JPanel implements Observer {
 
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e1) {
-
+		} catch (UnsupportedLookAndFeelException e) {
+			JOptionPane.showMessageDialog(null,
+					"Error: Unsupported Look and Feel", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		} catch (ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Error: Class not found",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} catch (InstantiationException e) {
+			JOptionPane.showMessageDialog(null, "Error: Instantiation",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		} catch (IllegalAccessException e) {
+			JOptionPane.showMessageDialog(null, "Error: Illegal Access",
+					"Error", JOptionPane.ERROR_MESSAGE);
 		}
 
 		// eigenes Layout setzen

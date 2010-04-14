@@ -7,6 +7,7 @@
 package model;
 
 import java.util.Observable;
+import javax.swing.JOptionPane;
 
 /**
  * Model, das einen Integer-Wert verwalten kann
@@ -63,6 +64,10 @@ public class ZaehlerModel extends Observable {
 			this.wert = wert;
 			setChanged();
 			notifyObservers();
+		} else {
+			JOptionPane.showMessageDialog(null,
+					"Error: Couldn't set new Value", "Error",
+					JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
