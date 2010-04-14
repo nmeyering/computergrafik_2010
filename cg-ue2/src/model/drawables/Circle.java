@@ -15,7 +15,7 @@ public class Circle extends DrawableObject {
 	private int r; // Radius
 
 	/**
-	 * Konstruktor, der ein Punktobjekt aus einem Koordinatenpaar errechnet
+	 * Konstruktor
 	 * 
 	 * @param p
 	 *            x, y-Koordinate

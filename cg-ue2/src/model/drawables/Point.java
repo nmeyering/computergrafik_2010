@@ -14,7 +14,7 @@ public class Point extends DrawableObject {
 	private int y; // y-Koordinate
 
 	/**
-	 * Konstruktor, der ein Punktobjekt aus einem Koordinatenpaar errechnet
+	 * Konstruktor
 	 * 
 	 * @param x
 	 *            x-Koordinate des Punktes

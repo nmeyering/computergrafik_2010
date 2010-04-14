@@ -12,7 +12,7 @@ import java.awt.Graphics;
 public class DashedRectangle extends Rectangle {
 
 	/**
-	 * Konstruktor, der ein Punktobjekt aus einem Koordinatenpaar errechnet
+	 * Konstruktor
 	 * 
 	 * @param p1
 	 *            Punkt 1

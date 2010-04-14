@@ -14,7 +14,7 @@ public class AntiAliasedLine extends DrawableObject {
 	private Point p1, p2; // Anfangs- und Endpunkt
 
 	/**
-	 * Konstruktor, der ein Punktobjekt aus einem Koordinatenpaar errechnet
+	 * Konstruktor
 	 * 
 	 * @param p1
 	 *            Punkt 1

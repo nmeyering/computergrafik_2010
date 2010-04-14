@@ -14,7 +14,7 @@ public class DashedLine extends Line {
 	private int steps = 0; // Steps for drawing dashed
 
 	/**
-	 * Konstruktor, der ein Punktobjekt aus einem Koordinatenpaar errechnet
+	 * Konstruktor
 	 * 
 	 * @param p1
 	 *            Punkt 1
