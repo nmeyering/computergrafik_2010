@@ -1,8 +1,12 @@
 package controller.listener;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputAdapter;
+
+import view.DrawingPanel;
 import model.drawables.AntiAliasedLine;
+import model.drawables.DashedLine;
 import model.drawables.Point;
 import controller.DrawableObjectProcessing;
 
@@ -18,6 +22,7 @@ public class AntiAliasedLineListener extends MouseInputAdapter {
 
 	private DrawableObjectProcessing delegate;
 	private Point start = null;
+	private DashedLine l;
 
 	/**
 	 * @param delegate
@@ -46,4 +51,24 @@ public class AntiAliasedLineListener extends MouseInputAdapter {
 		}
 	}
 
+	/**
+	 * Gestrichelte Anti-Aliased Linie anzeigen, wenn Startpunkt festgelegt
+	 * 
+	 * @param e
+	 *            MouseEvent
+	 */
+	public void mouseMoved(MouseEvent e) {
+		if (start != null) {
+			// Versetzt die Zeichenfläche in den XOR-Mode
+			if (e.getSource() instanceof DrawingPanel) {
+				((DrawingPanel) e.getSource()).getGraphics().setXORMode(
+						Color.RED);
+			}
+			// Löschen des temporären Objektes
+			delegate.clearTemporaryDrawableObject();
+			// Zeichnen eines neuen temporären Objektes
+			l = new DashedLine(start, new Point(e.getX(), e.getY()));
+			delegate.setTemporaryDrawableObject(l);
+		}
+	}
 }

@@ -60,13 +60,19 @@ public class AntiAliasedLine extends DrawableObject {
 		else
 			inc_y = -1;
 
+		float currError;
 		// Flach nach oben oder unten
 		if (Math.abs(dy) < Math.abs(dx)) {
 			error = -Math.abs(dx);
 			delta = 2 * Math.abs(dy);
 			schritt = 2 * error;
 			while (p.getXCoordinate() != p2.getXCoordinate()) {
-				setPixel(p.getXCoordinate(), p.getYCoordinate(), g);
+				currError = Math
+						.abs((float) ((float) error / (2.0f * (float) dx)));
+				setPixel(p.getXCoordinate(), p.getYCoordinate(),
+						(float) (1.0 - currError), g);
+				setPixel(p.getXCoordinate(), p.getYCoordinate() - inc_x,
+						currError, g);
 				p.setXCoordinate(p.getXCoordinate() + inc_x);
 				error = error + delta;
 				if (error > 0) {
@@ -80,7 +86,12 @@ public class AntiAliasedLine extends DrawableObject {
 			delta = 2 * Math.abs(dx);
 			schritt = 2 * error;
 			while (p.getYCoordinate() != p2.getYCoordinate()) {
-				setPixel(p.getXCoordinate(), p.getYCoordinate(), g);
+				currError = Math
+						.abs((float) ((float) error / (2.0f * (float) dy)));
+				setPixel(p.getXCoordinate(), p.getYCoordinate(),
+						(float) (1.0 - currError), g);
+				setPixel(p.getXCoordinate(), p.getYCoordinate() - inc_y,
+						currError, g);
 				p.setYCoordinate(p.getYCoordinate() + inc_y);
 				error = error + delta;
 				if (error > 0) {

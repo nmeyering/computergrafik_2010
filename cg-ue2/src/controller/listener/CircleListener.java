@@ -43,8 +43,8 @@ public class CircleListener extends MouseInputAdapter {
 			start = p;
 		} else {
 			// Falls Endpunkt: Kreis vom Startpunkt mit neuem Radius
-			Circle c = new Circle(start, Circle.getRadius(start, p));
-			delegate.processDrawableObject(c);
+			Circle ci = new Circle(start, Circle.getRadius(start, p));
+			delegate.processDrawableObject(ci);
 			start = null;
 		}
 	}
