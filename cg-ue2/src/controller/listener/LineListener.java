@@ -40,7 +40,6 @@ public class LineListener extends MouseInputAdapter {
 		Point p = new Point(e.getX(), e.getY());
 
 		if (start == null) { // Falls Startpunkt
-			delegate.processDrawableObject(p);
 			start = p;
 		} else {
 			// Falls Endpunkt: Linie vom Startpunkt bis zum Endpunkt erzeugen

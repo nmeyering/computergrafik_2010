@@ -45,7 +45,7 @@ public class DrawingPanelView extends JPanel {
 
 		// Besorge ein DrawingPanel und propagiere das entsprechende Model
 		drawingPanel = new DrawingPanel(preferedWidthOfDrawingPanel,
-				preferedWidthOfDrawingPanel, drawableObjectsModel);
+				preferedHeightOfDrawingPanel, drawableObjectsModel);
 		this.add(drawingPanel, BorderLayout.CENTER);
 
 		// Menüleiste in ein neues JPanel legen
